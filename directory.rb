@@ -11,3 +11,10 @@ puts "Freddy Kreuger"
 puts "The Joker"
 puts "Jeoffrey Baratheon"
 puts "Norman Bates"
+print "Overall, we have"
+print "11"
+puts "great students"
+
+#print doesnt add new line characters while puts does
+#if we wanted to break them up we could do this = print "line14\nline15\nline16"
+#this has to be in "" not ''
