@@ -20,10 +20,11 @@ puts "________"
 end
 
 def print_names(students)
-  students.each.with_index(1) do |student, index|
-     if student[:name].length <= 12 && student[:name][0] == "G"
-     puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
-    end
+index = 0 
+while index < students.length
+  student = students[index]
+     puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"
+index = index + 1
   end
 end
 
