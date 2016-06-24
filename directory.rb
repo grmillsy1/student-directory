@@ -5,7 +5,8 @@ def input_students
   puts "Please enter the name of your first student."
 
   students = []
-  name = gets.chomp.capitalize!
+  name = gets.capitalize!
+  name.gsub("\n", "")
   while !name.empty? do
     puts "Great, thanks! What cohort (month) will #{name} be entering?"
     cohort = gets.chomp.gsub(/\s+/,"_").capitalize.to_sym
