@@ -43,7 +43,11 @@ index = index + 1
 end
 
 def print_footer(students)
-puts "Overall, we have #{students.count} great students".center(60)
+if students.count == 1
+  puts  "Overall, we have #{students.count} great student".center(60)
+else
+  puts "Overall, we have #{students.count} great students".center(60)
+end
 end
 
 students = input_students
