@@ -5,9 +5,13 @@ def input_students
   puts "Please enter the name of your first student."
 
   students = []
-  name = gets.chomp
+  name = gets.chomp.capitalize!
   while !name.empty? do
-    puts "great, thanks!"
+    puts "Great, thanks! What cohort (month) will #{name} be entering?"
+    cohort = gets.chomp.gsub(/\s+/,"_").capitalize.to_sym
+      if cohort.empty?
+        cohort = :November
+      end
     puts "and what date was #{name} born (DD/MM/YY)?"
     date = gets.chomp
     puts "Thanks! Do you know if #{name} had any hobbies?"
@@ -15,7 +19,7 @@ def input_students
     puts "what about #{name}\'s height?"
     height = gets.chomp
 
-    students << {name: name, cohort: :november, dob: date, hobby: hobbies, heights: height}
+    students << {name: name, cohort: cohort, dob: date, hobby: hobbies, heights: height}
     puts "Now we have #{students.count} student"
     puts "Do you want to add any more students?"
     puts "if not, please hit return twice"
