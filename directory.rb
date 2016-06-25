@@ -1,12 +1,11 @@
 
 
-
 def input_students
   puts "Please enter the name of your first student."
 
   students = []
-  name = gets.capitalize!
-  name.gsub("\n", "")
+  name = gets.chomp.capitalize!
+
   while !name.empty? do
     puts "Great, thanks! What cohort (month) will #{name} be entering?"
     cohort = gets.chomp.gsub(/\s+/,"_").capitalize.to_sym
@@ -29,18 +28,53 @@ def input_students
   students
 end
 
+def interactive_menu
+
+#create an empty array
+students = []
+
+loop do #to create a loop
+#1.Print the menu and ask the user what they want to do
+
+puts "please chose a number from the list below"
+puts "1. Input students"
+puts "2. Show the students"
+puts "9. Exit menu"
+
+#2. read the input and save it
+selection = gets.chomp
+
+ #do what the user has asked
+
+ case selection
+ when "1"
+ students = input_students
+ when "2"
+ print_header
+ print(students)
+ print_footer(students)
+ when "9"
+ exit
+ else
+ puts "I don\'t have that option i\'m afraid"
+ end
+end
+end
+
+
 def print_header
 puts "The students of Villains Academy".center(60)
 puts "________".center(60)
 end
 
 def print_names(students)
+
 index = 0
 while index < students.length
   student = students[index]
      puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)".center(60)
 index = index + 1
-  end
+end
 end
 
 def print_footer(students)
@@ -51,7 +85,4 @@ else
 end
 end
 
-students = input_students
-print_header
-print_names(students)
-print_footer(students)
+interactive_menu
